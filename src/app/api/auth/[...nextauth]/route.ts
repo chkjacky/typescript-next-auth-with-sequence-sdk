@@ -1,72 +1,73 @@
 import NextAuth, { User } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import { JWT } from "next-auth/jwt";
-import { Session } from "next-auth";
+// import CredentialsProvider from "next-auth/providers/credentials";
+// import { JWT } from "next-auth/jwt";
+// import { Session } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
+import { authOptions } from "@/config/authOptions";
 
-const authOptions = {
-  providers: [
-    CredentialsProvider({
-      type: "credentials",
-      credentials: {},
-      async authorize(credentials, req) {
-        const { email, ethSignProof, walletId } = credentials as {
-          email: string;
-          ethSignProof: string;
-          walletId: string;
-        };
+// const authOptions = {
+//   providers: [
+//     CredentialsProvider({
+//       type: "credentials",
+//       credentials: {},
+//       async authorize(credentials, req) {
+//         const { email, ethSignProof, walletId } = credentials as {
+//           email: string;
+//           ethSignProof: string;
+//           walletId: string;
+//         };
 
-        if (
-          email == undefined ||
-          ethSignProof == undefined ||
-          walletId == undefined
-        ) {
-          return null;
-        }
+//         if (
+//           email == undefined ||
+//           ethSignProof == undefined ||
+//           walletId == undefined
+//         ) {
+//           return null;
+//         }
 
-        const user = {
-          id: walletId,
-          email: email,
-          ethSignProof: ethSignProof,
-          walletId: walletId,
-        };
+//         const user = {
+//           id: walletId,
+//           email: email,
+//           ethSignProof: ethSignProof,
+//           walletId: walletId,
+//         };
 
-        return user;
-      },
-    }),
-  ],
-  callbacks: {
-    // TODO: Update types of destructured objects
-    // async jwt({ token, user, session }: {token: JWT, user: AdapterUser, session: Session}): Promise<JWT> {
-    // async jwt({ token, user, session }: {token: JWT, user: any, session: Session}): Promise<JWT> {
-    async jwt({ token, user, session }: any): Promise<JWT> {
-      console.log("jwt here", { token, user, session });
+//         return user;
+//       },
+//     }),
+//   ],
+//   callbacks: {
+//     // TODO: Update types of destructured objects
+//     // async jwt({ token, user, session }: {token: JWT, user: AdapterUser, session: Session}): Promise<JWT> {
+//     // async jwt({ token, user, session }: {token: JWT, user: any, session: Session}): Promise<JWT> {
+//     async jwt({ token, user, session }: any): Promise<JWT> {
+//       console.log("jwt here", { token, user, session });
 
-      if (user) {
-        return {
-          ...token,
-          walletId: user.walletId,
-          ethSignProof: user.ethSignProof,
-        };
-      }
+//       if (user) {
+//         return {
+//           ...token,
+//           walletId: user.walletId,
+//           ethSignProof: user.ethSignProof,
+//         };
+//       }
 
-      return token;
-    },
-    async session({ session, token, user }: any): Promise<Session> {
-      console.log("session callback", { session, token, user });
+//       return token;
+//     },
+//     async session({ session, token, user }: any): Promise<Session> {
+//       console.log("session callback", { session, token, user });
 
-      return {
-        ...session,
-        user: {
-          ...session.user,
-          ethSignProof: token.ethSignProof,
-          walletId: token.walletId,
-        },
-      };
-    },
-  },
-};
+//       return {
+//         ...session,
+//         user: {
+//           ...session.user,
+//           ethSignProof: token.ethSignProof,
+//           walletId: token.walletId,
+//         },
+//       };
+//     },
+//   },
+// };
 
 export const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST, authOptions };
+export { handler as GET, handler as POST };
