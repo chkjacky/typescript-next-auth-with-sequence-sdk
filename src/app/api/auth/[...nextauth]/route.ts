@@ -4,7 +4,7 @@ import { JWT } from "next-auth/jwt";
 import { Session } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
 
-export const authOptions = {
+const authOptions = {
   providers: [
     CredentialsProvider({
       type: "credentials",
