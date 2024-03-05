@@ -4,7 +4,7 @@ By using Sequence SDK and Next Auth, we can create a special session within our 
 
 ## What is Sequence?
 
-Sequence is the all-in-one development platform for building web3 games. Easily incorporate web3 into your game to onboard, monetize, grow, and retain your players with our industry-leading technology.
+[Sequence](https://sequence.xyz/) is the all-in-one development platform for building web3 games. Easily incorporate web3 into your game to onboard, monetize, grow, and retain your players with our industry-leading technology.
 
 From collectibles and ownable rewards to fully on-chain experiences, Sequence’s modular stack solves technical challenges, allowing developers to concentrate on creative execution using our solutions: 
 + Sequence Builder
