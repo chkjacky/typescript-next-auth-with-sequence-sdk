@@ -1,3 +1,28 @@
+## What is this project about?
+
+By using Sequence SDK and Next Auth, we can create a special session within our DApp which is different from the traditional login method like email and password.
+
+## What is Sequence?
+
+Sequence is the all-in-one development platform for building web3 games. Easily incorporate web3 into your game to onboard, monetize, grow, and retain your players with our industry-leading technology.
+
+From collectibles and ownable rewards to fully on-chain experiences, Sequence’s modular stack solves technical challenges, allowing developers to concentrate on creative execution using our solutions: 
++ Sequence Builder
++ seamless smart wallet solutions
++ Marketplaces,
++ Minter
++ Payments
++ Indexer
++ Gas Tank and Relayer 
++ Node Gateway,
+SDKs for mobile, Unity, and Unreal Engine, and more. 
+
+Check out [their Media Kit](https://40061393.fs1.hubspotusercontent-na1.net/hubfs/40061393/Sequence%20Media%20Kit%202024.pdf)
+
+We can definitely use other service providers such as Firebase, Hex Trust, BitGo, etc to build our DApp, however, they are enterprise level service providers which do not provide any free trial or sandbox. As a DApp developer, I think Sequence can provide a lot of features we want, especially the basic functions like Wallet Generation, Marketplace APIs, Payments. Authentication and authorisation will be done on Sequence and the sessions will be returned to the client (our Dapp), this significantly reduces the time of work just to make our own account authentication and authorisation.
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
